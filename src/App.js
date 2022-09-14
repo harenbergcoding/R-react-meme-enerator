@@ -1,25 +1,27 @@
 import './App.css';
 import axios from 'axios';
+import { useEffect } from 'react';
 
 function App() {
-  const getImage = () => {
-    axios
-      .get('https://api.memegen.link/templates/')
-      .then((res) => {
-        console.log(res.data.content);
-      })
-      .catch((err) => {
-        console.log(err);
-        console.log(getImage);
-      });
-  };
-  console.log(getImage);
+  // Similar to componentDidMount and componentDidUpdate:
+  useEffect(() => {
+    const getImage = () => {
+      axios
+        .get('https://api.memegen.link/templates/')
+        .then((res) => {
+          // console.log(res.data.content);
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    // console.log(getImage);
+    getImage();
+  }, []);
 
   return (
     <div className="App">
-      <div>
-        <button onClick={getImage}>Get Image</button>
-      </div>
       <h1>React Meme Generator</h1>
       <br />
       <div
@@ -34,7 +36,15 @@ function App() {
           alignItems: 'center',
         }}
       >
-        Hi
+        <img
+          src="https://api.memegen.link/images/drake.jpg"
+          alt="drake"
+          data-test-id="meme-image"
+          style={{
+            width: 350,
+            height: 350,
+          }}
+        ></img>
       </div>
       <br />
       <label>
