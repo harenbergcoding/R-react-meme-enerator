@@ -34,18 +34,9 @@ function App() {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
+          backgroundImage: `url("https://api.memegen.link/images/drake.jpg")`,
         }}
-      >
-        <img
-          src="https://api.memegen.link/images/drake.jpg"
-          alt="drake"
-          data-test-id="meme-image"
-          style={{
-            width: 350,
-            height: 350,
-          }}
-        ></img>
-      </div>
+      ></div>
       <br />
       <label>
         Top Text <input />
