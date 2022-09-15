@@ -4,7 +4,7 @@ import { useState } from 'react';
 function App() {
   const [topText, setTopText] = useState('');
   const [bottomText, setBottomText] = useState('');
-  const [template, setTemplate] = useState('');
+  const [template, setTemplate] = useState('doge');
   const url = `https://api.memegen.link/images/${template}/${topText}/${bottomText}`;
 
   return (
