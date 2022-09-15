@@ -1,24 +1,11 @@
 import './App.css';
-import axios from 'axios';
-import { useEffect } from 'react';
+import { useState } from 'react';
 
 function App() {
-  // Similar to componentDidMount and componentDidUpdate:
-  useEffect(() => {
-    const getImage = () => {
-      axios
-        .get('https://api.memegen.link/templates/')
-        .then((res) => {
-          // console.log(res.data.content);
-          console.log(res.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
-    // console.log(getImage);
-    getImage();
-  }, []);
+  const [topText, setTopText] = useState('');
+  const [bottomText, setBottomText] = useState('');
+  const [template, setTemplate] = useState('');
+  const url = `https://api.memegen.link/images/${template}/${topText}/${bottomText}`;
 
   return (
     <div className="App">
@@ -34,23 +21,43 @@ function App() {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          backgroundImage: `url("https://api.memegen.link/images/drake.jpg")`,
         }}
-      ></div>
+      >
+        <img src={url} alt="random-meme" data-test-id="meme-image"></img>
+      </div>
       <br />
       <label>
-        Top Text <input />
+        Top Text{' '}
+        <input
+          value={topText}
+          onChange={(event) => {
+            setTopText(event.currentTarget.value);
+          }}
+        />
       </label>
       <br />
       <label>
-        Bottom Text <input />
+        Bottom Text{' '}
+        <input
+          value={bottomText}
+          onChange={(event) => {
+            setBottomText(event.currentTarget.value);
+          }}
+        />
       </label>
       <br /> <br />
-      Meme template <input /> <button>Submit</button>
+      Meme template{' '}
+      <input
+        value={template}
+        onChange={(event) => {
+          setTemplate(event.currentTarget.value);
+        }}
+      />
       <br />
       <br />
       <button>Download</button>
     </div>
   );
 }
+
 export default App;
