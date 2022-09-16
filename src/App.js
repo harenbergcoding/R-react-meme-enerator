@@ -13,7 +13,6 @@ function App() {
   function downloadFile() {
     saveAs(url);
   }
-
   return (
     <div className="App">
       <h1>React Meme Generator</h1>
