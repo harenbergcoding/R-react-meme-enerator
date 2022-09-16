@@ -1,11 +1,18 @@
 import './App.css';
+import { saveAs } from 'file-saver';
 import { useState } from 'react';
 
 function App() {
   const [topText, setTopText] = useState('');
   const [bottomText, setBottomText] = useState('');
-  const [template, setTemplate] = useState('doge');
+  const [template, setTemplate] = useState('buzz');
+  const [download, setDownload] = useState(false);
   const url = `https://api.memegen.link/images/${template}/${topText}/${bottomText}`;
+  // useState für URL!
+
+  function downloadFile() {
+    saveAs(url);
+  }
 
   return (
     <div className="App">
@@ -55,7 +62,14 @@ function App() {
       />
       <br />
       <br />
-      <button>Download</button>
+      <button
+        value={download}
+        onClick={(event) => {
+          setDownload(downloadFile());
+        }}
+      >
+        Download
+      </button>
     </div>
   );
 }
