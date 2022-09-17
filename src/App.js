@@ -29,7 +29,7 @@ function App() {
           alignItems: 'center',
         }}
       >
-        <img src={url} alt="random-meme" data-test-id="meme-image"></img>
+        <img src={url} alt="random-meme" data-test-id="meme-image" />
       </div>
       <br />
       <label>
