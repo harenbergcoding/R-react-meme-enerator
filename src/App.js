@@ -63,7 +63,7 @@ function App() {
       <br />
       <button
         value={download}
-        onClick={(event) => {
+        onClick={() => {
           setDownload(downloadFile());
         }}
       >
