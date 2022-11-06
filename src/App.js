@@ -32,10 +32,9 @@ function App() {
         <img src={url} alt="random-meme" data-test-id="meme-image" />
       </div>
       <br />
-      <label>
+      <label for="Top text">
         Top Text
         <input
-          label="Top text"
           value={topText}
           onChange={(event) => {
             setTopText(event.currentTarget.value);
@@ -43,10 +42,9 @@ function App() {
         />
       </label>
       <br />
-      <label>
+      <label for="Bottom text">
         Bottom Text
         <input
-          label="Bottom text"
           value={bottomText}
           onChange={(event) => {
             setBottomText(event.currentTarget.value);
@@ -54,14 +52,15 @@ function App() {
         />
       </label>
       <br /> <br />
-      Meme template{' '}
-      <input
-        label="Meme template"
-        value={template}
-        onChange={(event) => {
-          setTemplate(event.currentTarget.value);
-        }}
-      />
+      <label for="Meme template">
+        Meme template{' '}
+        <input
+          value={template}
+          onChange={(event) => {
+            setTemplate(event.currentTarget.value);
+          }}
+        />
+      </label>
       <br />
       <br />
       <button
