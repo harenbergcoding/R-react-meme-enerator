@@ -33,8 +33,9 @@ function App() {
       </div>
       <br />
       <label>
-        Top Text{' '}
+        Top Text
         <input
+          label="Top text"
           value={topText}
           onChange={(event) => {
             setTopText(event.currentTarget.value);
@@ -43,8 +44,9 @@ function App() {
       </label>
       <br />
       <label>
-        Bottom Text{' '}
+        Bottom Text
         <input
+          label="Bottom text"
           value={bottomText}
           onChange={(event) => {
             setBottomText(event.currentTarget.value);
@@ -54,6 +56,7 @@ function App() {
       <br /> <br />
       Meme template{' '}
       <input
+        label="Meme template"
         value={template}
         onChange={(event) => {
           setTemplate(event.currentTarget.value);
